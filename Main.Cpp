@@ -30,11 +30,6 @@ double divid(double i, double n)
     return divid;
 }
 
-// double remainder(double i, double n){
-//     double remainder = i % n;
-//     return remainder;
-// }
-
 double power(double i, double n)
 {
     double power = pow(i, n);
@@ -47,40 +42,49 @@ double power(double i, double n)
 int main()
 {
 
+    bool repeat = true;
+
     double num1, num2;
 
     char op;
 
     string ans;
 
-    cout << "Please enter your equation: ";
-    cin >> num1 >> op >> num2;
-
-    do
+    /* We have a while loop for bool to check if the user wants to still continue or if
+        the user gave us a bad input  */
+    while (repeat = true)
     {
+        cout << "Please enter your equation: ";
+        cin >> num1 >> op >> num2;
+
         switch (op)
         {
-        case '+':
-            cout << "Your answer is: " << add(num1, num2);
-            break;
-        case '-':
-            cout << "Your answer is: " << subtract(num1, num2);
-            break;
-        case '*':
-            cout << "Your answer is: " << multiply(num1, num2);
-            break;
-        case '/':
-            cout << "Your answer is: " << divid(num1, num2);
-            break;
-        //
-        case '^':
-            cout << "Your answer is: " << power(num1, num2);
-            break;
-        default:
-            cout << "Not a vaild expression please input again: ";
-            return 0;
+            case '+':
+                cout << "Your answer is: " << add(num1, num2) << endl;
+                break;
+            case '-':
+                cout << "Your answer is: " << subtract(num1, num2) << endl;
+                break;
+            case '*':
+                cout << "Your answer is: " << multiply(num1, num2) << endl;
+                break;
+            case 'x':
+                cout << "Your answer is: " << multiply(num1, num2) << endl;
+                break;
+            case 'X':
+                cout << "Your answer is: " << multiply(num1, num2) << endl;
+                break;
+            case '/':
+                cout << "Your answer is: " << divid(num1, num2) << endl;
+                break;
+            case '^':
+                cout << "Your answer is: " << power(num1, num2) << endl;
+                break;
+            default :
+                    cout << "Invaild expression please try again" << endl;
+                    cin.clear();
+                    cin.ignore(123, '\n');
+                    repeat = true;
         }
-    } while (ans == "yes" || ans == "Yes" || ans == "y" || ans == "Y");
-
-        return 0;
+    }
 }
